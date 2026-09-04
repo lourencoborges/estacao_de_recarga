@@ -1,0 +1,99 @@
+
+
+def main_lobby():
+    print("""
+    =====================================
+            ESTAÇÃO DE RECARGA
+    =====================================
+
+    1 - Nova sessão de recarga
+    2 - Listar sessões
+    3 - Buscar sessão
+    4 - Ordenar sessões
+    5 - Estatísticas
+    6 - Encerrar
+    """)
+
+    while True:
+        try:
+            escolha_usuario = int(input("Escolha: "))
+
+            if escolha_usuario >= 7 or escolha_usuario <= 0:
+                print("Use um número entre 1 e 6!")
+            else:
+                return escolha_usuario
+
+        except ValueError:
+            print("Bote apenas números!")
+
+
+
+escolha = main_lobby()
+
+
+sessoes = []
+
+class Sessao:
+    def __init__(self, id, energia, tempo, custo):
+        self.id = id
+        self.energia = energia 
+        self.tempo = tempo
+        self.custo = custo
+
+
+
+def cadastrar_sessao():
+    while True:
+        try:
+            id = int(input("Digite o ID: "))
+            if id > -1:
+                break
+
+            else:
+                print("Digite um valor positivo")
+        except ValueError:
+            print("Digite um numero")
+            
+        
+    while True:
+        try:
+            energia = float(input("Digite a energia: "))
+            if energia > 0:
+                break
+
+            else:
+                print("A energia deve ser maior que zero")
+        
+        except ValueError:
+            print("Digite um numero para a energia")
+    
+
+    while True:
+        try:
+            tempo = int(input("Digite o tempo: "))
+            if tempo > 0:
+                break
+
+            else:
+                print("Digite um valor maior que 0")
+        except ValueError:
+            print("Digite numeros no tempo")
+    
+
+    while True:
+        try:
+            custo = float(input("Digite o custo: "))
+            if custo > 0:
+                break
+                
+            else:
+                print("Digite um valor maior que zero")
+        except ValueError:
+            print("Digite um numero")
+    
+    
+    sessoes.append(Sessao(id, energia, tempo, custo))
+
+
+cadastro = cadastrar_sessao()
+print(cadastro)
