@@ -31,7 +31,8 @@ def main_lobby():
 escolha = main_lobby()
 
 
-sessoes = []
+
+
 
 class Sessao:
     def __init__(self, id, energia, tempo, custo):
@@ -39,15 +40,22 @@ class Sessao:
         self.energia = energia 
         self.tempo = tempo
         self.custo = custo
-
+        
+sessoes = [
+    Sessao(1, 50, 60, 30),
+    Sessao(1, 70, 80, 40)
+]
 
 
 def cadastrar_sessao():
     while True:
         try:
             id = int(input("Digite o ID: "))
-            if id > -1:
-                break
+            if id > 0:
+                for sessao in sessoes:
+                    if id == sessao.id:
+                        print("O ID ja existe")
+                continue
 
             else:
                 print("Digite um valor positivo")
