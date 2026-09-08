@@ -34,8 +34,6 @@ escolha = main_lobby()
 
 
 
-
-
 class Sessao:
     def __init__(self, id, energia, tempo, custo):
         self.id = id
@@ -48,69 +46,87 @@ sessoes = [
     Sessao(2, 70, 80, 40)
 ]
 
+    
 
 def cadastrar_sessao():
-    while True:
-        try:
-            id = int(input("Digite o ID: "))
-            if id > 0:
-                id_existe = False
+    if escolha == 1:
+        while True:
+            try:
+                id = int(input("Digite o ID: "))
+                if id > 0:
+                    id_existe = False
+                    
+                    for sessao in sessoes:
+                        if id == sessao.id:
+                            id_existe = True
+                            print("Esse Id ja existe")
                 
-                for sessao in sessoes:
-                    if id == sessao.id:
-                        id_existe = True
-                        print("Esse Id ja existe")
-            
-                if id_existe:
-                    continue
-                break
+                    if id_existe:
+                        continue
+                    break
 
-            else:
-                print("Digite um valor positivo")
-        except ValueError:
-            print("Digite um numero")
-            
-        
-    while True:
-        try:
-            energia = float(input("Digite a energia: "))
-            if energia > 0:
-                break
-
-            else:
-                print("A energia deve ser maior que zero")
-        
-        except ValueError:
-            print("Digite um numero para a energia")
-    
-
-    while True:
-        try:
-            tempo = int(input("Digite o tempo: "))
-            if tempo > 0:
-                break
-
-            else:
-                print("Digite um valor maior que 0")
-        except ValueError:
-            print("Digite numeros no tempo")
-    
-
-    while True:
-        try:
-            custo = float(input("Digite o custo: "))
-            if custo > 0:
-                break
+                else:
+                    print("Digite um valor positivo")
+            except ValueError:
+                print("Digite um numero")
                 
-            else:
-                print("Digite um valor maior que zero")
-        except ValueError:
-            print("Digite um numero")
-    
-    
-    sessoes.append(Sessao(id, energia, tempo, custo))
+            
+        while True:
+            try:
+                energia = float(input("Digite a energia: "))
+                if energia > 0:
+                    break
+
+                else:
+                    print("A energia deve ser maior que zero")
+            
+            except ValueError:
+                print("Digite um numero para a energia")
+        
+
+        while True:
+            try:
+                tempo = int(input("Digite o tempo: "))
+                if tempo > 0:
+                    break
+
+                else:
+                    print("Digite um valor maior que 0")
+            except ValueError:
+                print("Digite numeros no tempo")
+        
+
+        while True:
+            try:
+                custo = float(input("Digite o custo: "))
+                if custo > 0:
+                    break
+                    
+                else:
+                    print("Digite um valor maior que zero")
+            except ValueError:
+                print("Digite um numero")
+        
+        
+        sessoes.append(Sessao(id, energia, tempo, custo))
+
+
 
 
 cadastro = cadastrar_sessao()
 
-print(sessoes)
+
+
+
+def listar_sessoes():
+    if escolha == 2:
+        for sessao in sessoes:
+            print("ID: ", sessao.id)
+            print("Energia: ", sessao.energia)
+            print("Tempo: ", sessao.tempo)
+            print("Custo: ", sessao.custo)
+            print("")
+            
+
+
+listar_sessoes()
