@@ -1,5 +1,7 @@
 
 
+
+
 def main_lobby():
     print("""
     =====================================
@@ -43,7 +45,7 @@ class Sessao:
         
 sessoes = [
     Sessao(1, 50, 60, 30),
-    Sessao(1, 70, 80, 40)
+    Sessao(2, 70, 80, 40)
 ]
 
 
@@ -52,10 +54,16 @@ def cadastrar_sessao():
         try:
             id = int(input("Digite o ID: "))
             if id > 0:
+                id_existe = False
+                
                 for sessao in sessoes:
                     if id == sessao.id:
-                        print("O ID ja existe")
-                continue
+                        id_existe = True
+                        print("Esse Id ja existe")
+            
+                if id_existe:
+                    continue
+                break
 
             else:
                 print("Digite um valor positivo")
@@ -104,4 +112,5 @@ def cadastrar_sessao():
 
 
 cadastro = cadastrar_sessao()
-print(cadastro)
+
+print(sessoes)
