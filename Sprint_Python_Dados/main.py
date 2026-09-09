@@ -43,7 +43,8 @@ class Sessao:
         
 sessoes = [
     Sessao(1, 50, 60, 30),
-    Sessao(2, 70, 80, 40)
+    Sessao(2, 70, 80, 40),
+    Sessao(3, 40, 20, 10)
 ]
 
     
@@ -120,6 +121,9 @@ cadastro = cadastrar_sessao()
 
 def listar_sessoes():
     if escolha == 2:
+        print("==================")
+        print("      LISTA       ")
+        print("==================")
         for sessao in sessoes:
             print("ID: ", sessao.id)
             print("Energia: ", sessao.energia)
@@ -130,3 +134,35 @@ def listar_sessoes():
 
 
 listar_sessoes()
+
+
+def buscar_sessao():
+    if escolha == 3:
+        while True:
+            try:
+                id_busca = int(input("Digite o ID em que voce quer encontrar: "))
+                if id_busca > 0:
+                    encontrou = False
+                    for sessao in sessoes:
+                        if sessao.id == id_busca:
+                            encontrou = True
+                            print("==================")
+                            print("  SASSÃO BUSCADA  ")
+                            print("==================")
+                            print("ID:", sessao.id)
+                            print("Energia:", sessao.energia)
+                            print("Tempo:", sessao.tempo)
+                            print("Custo:", sessao.custo)
+                            break
+                    if encontrou:
+                        break
+
+                    else:
+                        print("ID nao encontrado")
+                else:
+                    print("Digite um ID positivo")
+            except ValueError:
+                print("Digite um ID")
+
+
+buscar_sessao()
