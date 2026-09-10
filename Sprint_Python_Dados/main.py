@@ -171,11 +171,11 @@ buscar_sessao()
 
 def ordenar_sessoes():
     if escolha == 4:
-        for sessao in range(len(sessoes) - 1):
-            if sessoes[sessao].id > sessoes[sessao + 1].id:
-                sessoes[sessao].id, sessoes[sessao + 1].id = sessoes[sessao + 1].id, sessoes[sessao].id
+        for i in range(len(sessoes)):
+            for sessao in range(len(sessoes) - 1):
+                if sessoes[sessao].id > sessoes[sessao + 1].id:
+                    sessoes[sessao], sessoes[sessao + 1] = sessoes[sessao + 1], sessoes[sessao]
+        print("Sessões ordenadas com sucesso")
 
-print("ID:", sessao.id)
-print("Energia:", sessao.energia)
-print("Tempo:", sessao.tempo)
-print("Custo:", sessao.custo)
+
+ordenar_sessoes()
