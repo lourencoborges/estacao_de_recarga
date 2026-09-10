@@ -42,8 +42,8 @@ class Sessao:
         self.custo = custo
         
 sessoes = [
-    Sessao(1, 50, 60, 30),
-    Sessao(2, 70, 80, 40),
+    Sessao(2, 50, 60, 30),
+    Sessao(1, 70, 80, 40),
     Sessao(3, 40, 20, 10)
 ]
 
@@ -166,3 +166,16 @@ def buscar_sessao():
 
 
 buscar_sessao()
+
+
+
+def ordenar_sessoes():
+    if escolha == 4:
+        for sessao in range(len(sessoes) - 1):
+            if sessoes[sessao].id > sessoes[sessao + 1].id:
+                sessoes[sessao].id, sessoes[sessao + 1].id = sessoes[sessao + 1].id, sessoes[sessao].id
+
+print("ID:", sessao.id)
+print("Energia:", sessao.energia)
+print("Tempo:", sessao.tempo)
+print("Custo:", sessao.custo)
